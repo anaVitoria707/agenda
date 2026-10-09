@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Minha agenda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <script>try{var t=localStorage.getItem("agenda-tema");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="band">
+    <h1>Minha agenda</h1>
+    <div class="themes" id="themes" role="group" aria-label="Tema de cores"></div>
+  </div>
+ 
+  <div class="sheet">
+    <!-- Calendário do mês -->
+    <div class="monthbar">
+      <h2 id="monthTitle"></h2>
+      <div>
+        <button class="nav" id="prev" type="button" aria-label="Mês anterior">←</button>
+        <button class="nav" id="next" type="button" aria-label="Próximo mês">→</button>
+      </div>
+    </div>
+    <div class="grid weekdays" id="weekdays"></div>
+    <div class="grid" id="month"></div>
+ 
+    <!-- Dia selecionado -->
+    <h2 class="daytitle" id="dayTitle"></h2>
+    <div class="prog">
+      <div class="top"><span id="ptxt"></span><span id="ppct"></span></div>
+      <div class="bar" id="bar"></div>
+    </div>
+    <div class="tags" id="tags"></div>
+    <div class="tl" id="tl"></div>
+ 
+    <!-- Nova tarefa -->
+    <div class="new" role="group" aria-label="Nova tarefa">
+      <h2>Nova tarefa</h2>
+      <label class="full">Nome<input type="text" id="n" placeholder="Ex.: Revisar relatório"></label>
+      <label>Dia<input type="date" id="d"></label>
+      <label>Início<input type="time" id="s" value="14:00"></label>
+      <label>Fim<input type="time" id="e" value="15:00"></label>
+      <label>Categoria<select id="c"></select></label>
+      <label class="full">Repetir
+        <select id="r">
+          <option value="none">Só neste dia</option>
+          <option value="daily">Todos os dias até o fim do mês</option>
+          <option value="weekdays">Segunda a sexta até o fim do mês</option>
+          <option value="weekly">Toda semana (mesmo dia) até o fim do mês</option>
+        </select>
+      </label>
+      <button class="btn" id="add" type="button">Adicionar</button>
+    </div>
+  </div>
+ 
+  <!-- Listas editáveis -->
+  <h2 class="sec">Minhas listas
+    <span class="adds">
+      <button class="btn" id="addList" type="button">+ Checklist</button>
+      <button class="btn" id="addWater" type="button">+ Contador</button>
+    </span>
+  </h2>
+  <div class="notes" id="notes"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
